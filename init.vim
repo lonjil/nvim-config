@@ -1,5 +1,6 @@
 let g:python3_host_prog = '/usr/bin/python3'
 
+set sessionoptions-=options
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 syntax on
