@@ -1,0 +1,63 @@
+[submodule "denite"]
+	path = bundle/denite.nvim
+	url = https://github.com/Shougo/denite.nvim
+[submodule "bundle/fzf"]
+	path = bundle/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "bundle/fzf.vim"]
+	path = bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "bundle/loremipsum"]
+	path = bundle/loremipsum
+	url = https://github.com/vim-scripts/loremipsum
+[submodule "bundle/ncm-clang"]
+	path = bundle/ncm-clang
+	url = https://github.com/roxma/ncm-clang
+[submodule "bundle/ncm-github"]
+	path = bundle/ncm-github
+	url = https://github.com/roxma/ncm-github
+[submodule "bundle/neco-vim"]
+	path = bundle/neco-vim
+	url = https://github.com/Shougo/neco-vim
+[submodule "bundle/neoinclude.vim"]
+	path = bundle/neoinclude.vim
+	url = https://github.com/Shougo/neoinclude.vim
+[submodule "bundle/nvim-completion-manager"]
+	path = bundle/nvim-completion-manager
+	url = https://github.com/roxma/nvim-completion-manager
+[submodule "bundle/odin.vim"]
+	path = bundle/odin.vim
+	url = https://git::@github.com/Tetralux/odin.vim.git
+[submodule "bundle/paredit"]
+	path = bundle/paredit
+	url = https://github.com/kovisoft/paredit
+[submodule "bundle/rainbow"]
+	path = bundle/rainbow
+	url = https://github.com/luochen1990/rainbow
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "bundle/undotree"]
+	path = bundle/undotree
+	url = https://github.com/mbbill/undotree
+[submodule "bundle/vim-emoji"]
+	path = bundle/vim-emoji
+	url = https://github.com/junegunn/vim-emoji
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "bundle/vim-live-latex-preview"]
+	path = bundle/vim-live-latex-preview
+	url = https://github.com/ying17zi/vim-live-latex-preview.git
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "bundle/vim-odin"]
+	path = bundle/vim-odin
+	url = https://github.com/terickson001/vim-odin
+[submodule "vim-pathogen"]
+	path = bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
