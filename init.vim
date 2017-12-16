@@ -1,42 +1,50 @@
 let g:python3_host_prog = '/usr/bin/python3'
 
+set showcmd
+let mapleader = "\<SPACE>"
+let maolocalleader = ","
+
 set sessionoptions-=options
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-" let g:deoplete#enable_at_startup = 1
-
 set mouse=a
 set inccommand=split
-
-highlight ColorColumn ctermbg=darkgrey
 set cc=80
 set number relativenumber
 
-augroup myvimrchooks
-	au!
-	autocmd bufwritepost .vimrc source ~/.vimrc
-augroup END
+highlight ColorColumn ctermbg=darkgrey
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+\%#\@<!$/
 
-set showcmd
-let mapleader = "\<SPACE>"
+func! ReplaceEmoji()
+	let l:col = col('.')
+	let l:line = line('.')
+	let l:prelen = strlen(getline('.'))
+	s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/ge
+	let l:postlen = strlen(getline('.'))
+	call cursor(l:line, l:col + l:postlen - l:prelen)
+endfunc
+
+augroup nviminit
+	au!
+	au ColorScheme *
+		\ highlight ExtraWhitespace ctermbg=red guibg=red |
+		\ highlight MatchParen ctermbg=0 |
+		\ highlight MatchParen cterm=underline
+	au BufWritePost init.vim source ~/.config/nvim/init.vim
+	au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+	au InsertLeave * match ExtraWhitespace /\s\+$/
+	au CursorMovedI * :call ReplaceEmoji()
+augroup END
 
 set history=1000
 set title
 set scrolloff=5
 set listchars=tab:>-,trail:.,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-highlight SpellBad ctermfg=red
-match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$/
-highlight MatchParen ctermbg=0
-highlight MatchParen term=underline cterm=underline gui=underline
 
 command! W w !sudo tee % > /dev/null
 
@@ -51,7 +59,6 @@ command! W w !sudo tee % > /dev/null
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-
 set grepprg=rg\ --vimgrep
 
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -66,23 +73,10 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 " optional
 inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 
-function! Test ()
-	for e in emoji#list()
-		call append(line('$'), printf('%s (%s)', emoji#for(e), e))
-	endfor
-endfunction
-nmap <silent> <C-B> :call Test()<CR>
-
 " TODO: fzf-emoji
-autocmd CursorMovedI * :call ReplaceEmoji()
 
-func! ReplaceEmoji()
-	let l:col = col('.')
-	let l:line = line('.')
-	let l:prelen = strlen(getline('.'))
-	s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/ge
-	let l:postlen = strlen(getline('.'))
-	call cursor(l:line, l:col + l:postlen - l:prelen)
-endfunc
 
 let g:rainbow_active = 1
+
+nnoremap <c-j> o<esc>k
+nnoremap <c-k> O<esc>j
