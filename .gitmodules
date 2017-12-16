@@ -61,3 +61,9 @@
 [submodule "vim-pathogen"]
 	path = bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule "bundle/vim-commentary"]
+	path = bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
