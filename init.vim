@@ -32,12 +32,10 @@ augroup nviminit
 	au!
 	au ColorScheme *
 		\ highlight ExtraWhitespace ctermbg=red guibg=red |
-		\ highlight MatchParen ctermbg=0 |
-		\ highlight MatchParen cterm=underline
+		\ highlight MatchParen cterm=underline ctermbg=0
 	au BufWritePost init.vim source ~/.config/nvim/init.vim
 	au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 	au InsertLeave * match ExtraWhitespace /\s\+$/
-	au CursorMovedI * :call ReplaceEmoji()
 augroup END
 
 set history=1000
@@ -80,3 +78,22 @@ let g:rainbow_active = 1
 
 nnoremap <c-j> o<esc>k
 nnoremap <c-k> O<esc>j
+
+let g:emoji_conversion = 0
+func! ToggleEmojiConversion()
+	if g:emoji_conversion
+		let g:emoji_conversion = 0
+		echomsg "Emoji conversion disabled"
+		augroup emoji_test
+			au!
+		augroup END
+	else
+		let g:emoji_conversion = 1
+		echomsg "Emoji conversion enabled"
+		augroup emoji_test
+			au!
+			au CursorMovedI * :call ReplaceEmoji()
+		augroup END
+	endif
+endfunc
+nnoremap <silent> <leader>e :call ToggleEmojiConversion()<cr>
