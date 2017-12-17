@@ -67,3 +67,6 @@
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
+[submodule "ncm-emoji"]
+	path = bundle/ncm-emoji
+	url = https://github.com/lonjil/ncm-emoji
