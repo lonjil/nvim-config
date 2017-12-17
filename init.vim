@@ -78,6 +78,7 @@ let g:rainbow_active = 1
 
 nnoremap <c-j> o<esc>k
 nnoremap <c-k> O<esc>j
+nnoremap <space> <nop>
 
 let g:emoji_conversion = 0
 func! ToggleEmojiConversion()
