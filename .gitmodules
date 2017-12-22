@@ -70,3 +70,6 @@
 [submodule "ncm-emoji"]
 	path = bundle/ncm-emoji
 	url = https://github.com/lonjil/ncm-emoji
+[submodule "bundle/discord.nvim"]
+	path = bundle/discord.nvim
+	url = https://github.com/aurieh/discord.nvim/
