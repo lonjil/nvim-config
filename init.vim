@@ -33,7 +33,7 @@ augroup nviminit
 	au ColorScheme *
 		\ highlight ExtraWhitespace ctermbg=red guibg=red |
 		\ highlight MatchParen cterm=underline ctermbg=0
-	au BufWritePost init.vim source ~/.config/nvim/init.vim
+	au BufWritePost $MYVIMRC source $MYVIMRC
 	au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 	au InsertLeave * match ExtraWhitespace /\s\+$/
 augroup END
@@ -79,6 +79,7 @@ let g:rainbow_active = 1
 nnoremap <c-j> o<esc>k
 nnoremap <c-k> O<esc>j
 nnoremap <space> <nop>
+nnoremap <leader><leader> 80\|b
 
 let g:emoji_conversion = 0
 func! ToggleEmojiConversion()
@@ -98,3 +99,10 @@ func! ToggleEmojiConversion()
 	endif
 endfunc
 nnoremap <silent> <leader>e :call ToggleEmojiConversion()<cr>
+
+
+nnoremap <f9> mzggg?G`z
+tnoremap <localleader>. <C-\><C-N>
+nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+nnoremap <leader>fs :w<cr>
