@@ -22,9 +22,6 @@
 [submodule "bundle/neoinclude.vim"]
 	path = bundle/neoinclude.vim
 	url = https://github.com/Shougo/neoinclude.vim
-[submodule "bundle/nvim-completion-manager"]
-	path = bundle/nvim-completion-manager
-	url = https://github.com/roxma/nvim-completion-manager
 [submodule "bundle/odin.vim"]
 	path = bundle/odin.vim
 	url = https://git::@github.com/Tetralux/odin.vim.git
