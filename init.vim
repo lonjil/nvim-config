@@ -7,16 +7,17 @@ let maplocalleader = ","
 set sessionoptions-=options
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
-syntax on
+syntax enable
+colorscheme dim
 filetype plugin indent on
 
 set mouse=a
 set inccommand=split
-set cc=80
+set cc=81
 set number relativenumber
 
 highlight ColorColumn ctermbg=darkgrey
-highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+\%#\@<!$/
 
 func! ReplaceEmoji()
@@ -36,6 +37,8 @@ augroup nviminit
 	au BufWritePost $MYVIMRC source $MYVIMRC
 	au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 	au InsertLeave * match ExtraWhitespace /\s\+$/
+	au BufEnter * call ncm2#enable_for_buffer()
+	au TextChangedI * call ncm2#auto_trigger()
 augroup END
 
 set history=1000
@@ -64,9 +67,16 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+
+set completeopt=menuone,noinsert,noselect,preview
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+
+let g:UltiSnipsExpandTrigger = "<C-leader>"
+let g:UltiSnipsJumpForwardTrigger	= "<c-l>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-h>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 " optional
 inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
@@ -106,3 +116,11 @@ tnoremap <localleader>. <C-\><C-N>
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 nnoremap <leader>fs :w<cr>
+
+let g:vimtex_view_method = "mupdf"
+let g:vimtex_compiler_engine = "lualatex"
+
+
+let g:rainbow_conf = {
+\	'ctermfgs': ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
+\}

@@ -10,21 +10,12 @@
 [submodule "bundle/loremipsum"]
 	path = bundle/loremipsum
 	url = https://github.com/vim-scripts/loremipsum
-[submodule "bundle/ncm-clang"]
-	path = bundle/ncm-clang
-	url = https://github.com/roxma/ncm-clang
-[submodule "bundle/ncm-github"]
-	path = bundle/ncm-github
-	url = https://github.com/roxma/ncm-github
 [submodule "bundle/neco-vim"]
 	path = bundle/neco-vim
 	url = https://github.com/Shougo/neco-vim
 [submodule "bundle/neoinclude.vim"]
 	path = bundle/neoinclude.vim
 	url = https://github.com/Shougo/neoinclude.vim
-[submodule "bundle/odin.vim"]
-	path = bundle/odin.vim
-	url = https://git::@github.com/Tetralux/odin.vim.git
 [submodule "bundle/paredit"]
 	path = bundle/paredit
 	url = https://github.com/kovisoft/paredit
@@ -43,18 +34,12 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "bundle/vim-live-latex-preview"]
-	path = bundle/vim-live-latex-preview
-	url = https://github.com/ying17zi/vim-live-latex-preview.git
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "bundle/vim-odin"]
-	path = bundle/vim-odin
-	url = https://github.com/terickson001/vim-odin
 [submodule "vim-pathogen"]
 	path = bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
@@ -64,9 +49,54 @@
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule "ncm-emoji"]
-	path = bundle/ncm-emoji
-	url = https://github.com/lonjil/ncm-emoji
-[submodule "bundle/discord.nvim"]
-	path = bundle/discord.nvim
-	url = https://github.com/aurieh/discord.nvim/
+[submodule "bundle/ncm2"]
+	path = bundle/ncm2
+	url = https://github.com/ncm2/ncm2
+[submodule "bundle/ncm2-bufword"]
+	path = bundle/ncm2-bufword
+	url = https://github.com/ncm2/ncm2-bufword
+[submodule "bundle/ncm2-neoinclude"]
+	path = bundle/ncm2-neoinclude
+	url = https://github.com/ncm2/ncm2-neoinclude
+[submodule "bundle/ncm2-path"]
+	path = bundle/ncm2-path
+	url = https://github.com/ncm2/ncm2-path
+[submodule "bundle/ncm2-pyclang"]
+	path = bundle/ncm2-pyclang
+	url = https://github.com/ncm2/ncm2-pyclang
+[submodule "bundle/ncm2-racer"]
+	path = bundle/ncm2-racer
+	url = https://github.com/ncm2/ncm2-racer
+[submodule "bundle/ncm2-ultisnips"]
+	path = bundle/ncm2-ultisnips
+	url = https://github.com/ncm2/ncm2-ultisnips
+[submodule "bundle/ncm2-vim"]
+	path = bundle/ncm2-vim
+	url = https://github.com/ncm2/ncm2-vim
+[submodule "bundle/nvim-yarp"]
+	path = bundle/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
+[submodule "bundle/rust.vim"]
+	path = bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "bundle/vim-dim"]
+	path = bundle/vim-dim
+	url = https://github.com/jeffkreeftmeijer/vim-dim
+[submodule "bundle/vim-glsl"]
+	path = bundle/vim-glsl
+	url = https://github.com/tikhomirov/vim-glsl
+[submodule "bundle/vim-obsession"]
+	path = bundle/vim-obsession
+	url = https://github.com/tpope/vim-obsession
+[submodule "bundle/vim-racer"]
+	path = bundle/vim-racer
+	url = https://github.com/racer-rust/vim-racer
+[submodule "bundle/vimtex"]
+	path = bundle/vimtex
+	url = https://github.com/lervag/vimtex
+[submodule "bundle/ncm2-github"]
+	path = bundle/ncm2-github
+	url = https://github.com/ncm2/ncm2-github
+[submodule "bundle/float-preview.nvim"]
+	path = bundle/float-preview.nvim
+	url = https://github.com/ncm2/float-preview.nvim
