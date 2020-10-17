@@ -18,23 +18,13 @@ set number relativenumber
 
 highlight ColorColumn ctermbg=darkgrey
 highlight ExtraWhitespace ctermbg=red
-match ExtraWhitespace /\s\+\%#\@<!$/
 
-func! ReplaceEmoji()
-	let l:col = col('.')
-	let l:line = line('.')
-	let l:prelen = strlen(getline('.'))
-	s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/ge
-	let l:postlen = strlen(getline('.'))
-	call cursor(l:line, l:col + l:postlen - l:prelen)
-endfunc
+
 
 augroup nviminit
 	au!
-	au ColorScheme *
-		\ highlight ExtraWhitespace ctermbg=red guibg=red |
-		\ highlight MatchParen cterm=underline ctermbg=0
-	au BufWritePost $MYVIMRC source $MYVIMRC
+	au ColorScheme *  highlight ExtraWhitespace ctermbg=red
+	au BufWritePost $MYVIMRC source %
 	au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 	au InsertLeave * match ExtraWhitespace /\s\+$/
 	au BufEnter * call ncm2#enable_for_buffer()
@@ -81,35 +71,12 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 " optional
 inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 
-" TODO: fzf-emoji
-
-
-let g:rainbow_active = 1
 
 nnoremap <c-j> o<esc>k
 nnoremap <c-k> O<esc>j
 nnoremap <space> <nop>
-nnoremap <leader><leader> 80\|b
-
-let g:emoji_conversion = 0
-func! ToggleEmojiConversion()
-	if g:emoji_conversion
-		let g:emoji_conversion = 0
-		echomsg "Emoji conversion disabled"
-		augroup emoji_test
-			au!
-		augroup END
-	else
-		let g:emoji_conversion = 1
-		echomsg "Emoji conversion enabled"
-		augroup emoji_test
-			au!
-			au CursorMovedI * :call ReplaceEmoji()
-		augroup END
-	endif
-endfunc
-nnoremap <silent> <leader>e :call ToggleEmojiConversion()<cr>
-
+"nnoremap <silent> <leader><leader> 80\|?\s
+nmap <silent> <leader><leader> <plug>(my-to-last-white-space)<cr>
 
 nnoremap <f9> mzggg?G`z
 tnoremap <localleader>. <C-\><C-N>
@@ -119,8 +86,12 @@ nnoremap <leader>fs :w<cr>
 
 let g:vimtex_view_method = "mupdf"
 let g:vimtex_compiler_engine = "lualatex"
+let g:vimtex_compiler_progname = 'nvr'
 
 
+let g:rainbow_active = 1
 let g:rainbow_conf = {
-\	'ctermfgs': ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
+\	'ctermfgs': ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
 \}
+
+nmap <silent> <leader>e <plug>(my-toggle-emoji-conversion)<cr>
