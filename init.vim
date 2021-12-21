@@ -55,6 +55,7 @@ Plug 'https://github.com/honza/vim-snippets'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/lervag/vimtex'
 Plug 'https://github.com/ziglang/zig.vim'
+Plug 'ojroques/vim-oscyank'
 
 call plug#end()
 
@@ -158,3 +159,9 @@ nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
 
 inoremap <nowait> < <
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
