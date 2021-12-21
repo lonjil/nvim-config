@@ -6,6 +6,13 @@ let maplocalleader = ","
 
 set sessionoptions-=options
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -19,6 +26,7 @@ Plug 'https://github.com/Shougo/denite.nvim'
 Plug 'https://github.com/ncm2/float-preview.nvim'
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/vim-scripts/loremipsum'
+Plug 'https://github.com/roxma/nvim-yarp'
 Plug 'https://github.com/ncm2/ncm2'
 Plug 'https://github.com/ncm2/ncm2-bufword'
 Plug 'https://github.com/ncm2/ncm2-github'
@@ -30,7 +38,6 @@ Plug 'https://github.com/ncm2/ncm2-ultisnips'
 Plug 'https://github.com/ncm2/ncm2-vim'
 Plug 'https://github.com/Shougo/neco-vim'
 Plug 'https://github.com/Shougo/neoinclude.vim'
-Plug 'https://github.com/roxma/nvim-yarp'
 Plug 'https://github.com/kovisoft/paredit'
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'https://github.com/rust-lang/rust.vim'
@@ -149,3 +156,5 @@ nmap <F5> <Plug>(lcn-menu)
 nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
+
+inoremap <nowait> < <
